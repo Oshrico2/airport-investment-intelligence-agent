@@ -1,0 +1,29 @@
+# What a Vercel CLI source upload must never include.
+#
+# This project deploys only with `vercel deploy --prebuilt` (scripts/deploy.sh), which uploads .vercel/output alone
+# after scripts/deploy-guard.mjs has scanned it; this file is the second line of defence. The Vercel CLI does NOT read
+# .gitignore, and its defaults do not cover server/.env or .env.production. Keep this file committed and permanent.
+
+# ── secrets: never uploaded, at any depth ─────────────────────────────────────
+.env
+.env*
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+.vercel
+.claude
+.idea
+
+# ── not needed to build ───────────────────────────────────────────────────────
+node_modules
+dist
+coverage
+/docs
+/data/raw
+web/test-results
+web/playwright-report
+.DS_Store

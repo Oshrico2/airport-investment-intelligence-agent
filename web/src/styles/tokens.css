@@ -1,0 +1,72 @@
+/* Departure Board design tokens. Contrast checked: text 16.5:1, text-2 8.7:1, muted 5.8:1 on --panel. */
+:root {
+  color-scheme: dark;
+
+  /* ground and layers: night-terminal navy-black */
+  --ground: #090e17;
+  --panel: #0f1622;
+  --raised: #152033;
+  --rail: #0b111c;
+  --line: #1f2b3d;
+  --line-strong: #2d3b52;
+
+  /* ink */
+  --text: #f2f4f7;
+  --text-2: #a9b4c4;
+  --muted: #8592a6;
+
+  /* signage yellow: action, selection, focus, signature tiles only */
+  --signal: #ffc72c;
+  --signal-ink: #0a0f18;
+  --signal-soft: rgb(255 199 44 / 0.1);
+  --signal-line: rgb(255 199 44 / 0.35);
+  --signal-hover: #ffd45a;
+
+  /* split-flap tile faces (top half / bottom half) */
+  --tile-top: #26354f;
+  --tile-bottom: #1e2a40;
+  --tile-ink: #fbfcfe;
+  --tile-signal-top: #ffcc3d;
+  --tile-signal-bottom: #f5bd22;
+
+  /* data series (dataviz documented dark steps, validated on --panel) */
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-muted: #5e6b84;
+  --grid: #1c2737;
+  --axis: #33425a;
+
+  /* direction and status (always paired with a sign, icon or label) */
+  --up: #3dd68c;
+  --down: #ff8a7a;
+  --warning: #fab219;
+
+  /* type */
+  --font-ui: 'IBM Plex Sans Variable', 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-data: 'B612 Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.375rem;
+
+  /* space (4px base) */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+
+  --radius: 4px;
+  --radius-lg: 8px;
+
+  /* motion (Emil Kowalski: strong ease-out, under 300 ms) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --t-fast: 140ms;
+}

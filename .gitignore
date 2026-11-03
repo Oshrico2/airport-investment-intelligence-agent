@@ -1,0 +1,15 @@
+.DS_Store
+.idea/
+node_modules/
+dist/
+coverage/
+# secrets: the AI keys live only in server/.env; Vercel CLI link data and pulled env files in .vercel
+.vercel
+.env
+.env.*
+!.env.example
+# raw BTS downloads (large); derived snapshots under data/snapshots are committed
+data/raw/
+# Playwright output
+web/test-results/
+web/playwright-report/

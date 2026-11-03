@@ -1,0 +1,233 @@
+{
+  "version": "2026-11-03",
+  "createdAt": "2026-11-03T10:50:22.044Z",
+  "sources": [
+    {
+      "id": "r495",
+      "name": "BTS T-100 Segment Summary By Origin Airport (r495-tyji)",
+      "url": "https://data.bts.gov/resource/r495-tyji.json",
+      "params": {
+        "query": "https://data.bts.gov/resource/r495-tyji.json?%24select=origin_airport_id%2Corigin_airport_code%2Corigin_airport_name%2Creporting_month%2Ctotal_departures%2Ctotal_passengers%2Ctotal_seats%2Cdomestic_passengers%2Cdomestic_departures%2Coutbound_international%2Coutbound_international_1%2Ctotal_freight_lbs&%24where=year+in%28%272019%27%2C%272024%27%2C%272025%27%2C%272026%27%29&%24order=origin_airport_id%2Creporting_month&%24limit=50000&%24offset=0"
+      },
+      "coverage": {
+        "from": "2019-01",
+        "to": "2026-07"
+      },
+      "retrievedAt": "2026-11-03T10:37:53.121Z",
+      "vintage": "2026-10-27T17:02:56.000Z",
+      "rawSha256": [
+        "d03e18886fb3bff3bccb18165177881aab6e648bef0c38007fa50fc82adc8b0d"
+      ],
+      "rowCount": 38672
+    },
+    {
+      "id": "fmg",
+      "name": "BTS T-100 Segment (All Carriers), TranStats FMG",
+      "url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FMG&QO_fu146_anzr=Nv4%20Pn44vr45",
+      "params": {
+        "geography": "All",
+        "years": "2019,2024,2025",
+        "period": "All",
+        "fields": "YEAR,MONTH,ORIGIN_AIRPORT_ID,ORIGIN,ORIGIN_STATE_ABR,ORIGIN_CITY_NAME,DEST,DISTANCE,DEPARTURES_PERFORMED,SEATS,PASSENGERS,CLASS,AIRCRAFT_CONFIG"
+      },
+      "coverage": {
+        "from": "2019-01",
+        "to": "2025-12"
+      },
+      "retrievedAt": "2026-11-03T10:46:05.214Z",
+      "vintage": "2026-11-03",
+      "rawSha256": [
+        "c7ee2584f8ffa3e51efc9d7e57837b3f8f40f829cce292bb3ca39a634d6dd8c0",
+        "8302419f10cf4f448364225961bef9eb30d5f4857ee8d8731e820c9ec6c0cade",
+        "0ff55845bc3b1cd0ed387fe4d14f1ff17622a2cb763d046354b972cc37dee9b1"
+      ],
+      "rowCount": 1608927
+    },
+    {
+      "id": "delayCauses",
+      "name": "BTS Airline On-Time Statistics and Delay Causes",
+      "url": "https://www.transtats.bts.gov/OT_Delay/ot_delaycause1_DL.aspx?8n4=9ur4r%20Brn4z106u%20or69rr0%20FHGDE%20NaQ%20FHGFG",
+      "params": {
+        "from": "2025-1",
+        "to": "2026-11"
+      },
+      "coverage": {
+        "from": "2025-01",
+        "to": "2026-08"
+      },
+      "retrievedAt": "2026-11-03T10:46:18.570Z",
+      "vintage": "2026-11-03",
+      "rawSha256": [
+        "2e7ea874b824fc95d907592afe02c45c4794085596f8abfa8165184459e0e231"
+      ],
+      "rowCount": 37484
+    },
+    {
+      "id": "lookupAirportId",
+      "name": "BTS TranStats lookup L_AIRPORT_ID",
+      "url": "https://www.transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_NVecbeg_VQ",
+      "params": {},
+      "coverage": {
+        "from": "",
+        "to": ""
+      },
+      "retrievedAt": "2026-11-03T10:37:58.524Z",
+      "vintage": "2026-11-03",
+      "rawSha256": [
+        "cff27be77b3da705cdce87fbfe6c07d93087468d5aa0d139bb816f637e97137d"
+      ],
+      "rowCount": 6918
+    }
+  ],
+  "checks": [
+    {
+      "name": "V2 r495 unique airport-months",
+      "passed": true,
+      "detail": "38672 rows"
+    },
+    {
+      "name": "V3/R4′ r495 identity total = domestic + outbound",
+      "passed": true,
+      "detail": "0 rows flagged"
+    },
+    {
+      "name": "FMG 2019 months",
+      "passed": true,
+      "detail": "12 months, 487923 rows"
+    },
+    {
+      "name": "FMG 2024 months",
+      "passed": true,
+      "detail": "12 months, 549799 rows"
+    },
+    {
+      "name": "FMG 2025 months",
+      "passed": true,
+      "detail": "12 months, 571205 rows"
+    },
+    {
+      "name": "V12 routes = r495 (airport-years ≥400k passengers)",
+      "passed": true,
+      "detail": "458 checked, 0 mismatches "
+    },
+    {
+      "name": "V12 routes = r495 (all airport-years, informational)",
+      "passed": true,
+      "detail": "5714 checked, 0 mismatches"
+    },
+    {
+      "name": "R1′ airport directory",
+      "passed": true,
+      "detail": "1694 airports, 4 flags, 2 with BTS-reported code aliases (DJT=PBI, GLE=T1X)"
+    },
+    {
+      "name": "Delay Causes arr_delay = sum of cause minutes",
+      "passed": true,
+      "detail": "104 of 37484 rows differ by more than 1 minute"
+    },
+    {
+      "name": "Delay Causes blank rows skipped (R11′)",
+      "passed": true,
+      "detail": "9 rows"
+    },
+    {
+      "name": "Delay Causes airport codes mapped (R1′)",
+      "passed": true,
+      "detail": "all mapped"
+    }
+  ],
+  "qualityFlags": [
+    {
+      "rule": "R6",
+      "id": "11136",
+      "month": "2025-07",
+      "detail": "monthly load factor 106.3%"
+    },
+    {
+      "rule": "R6",
+      "id": "11165",
+      "month": "2025-06",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R6",
+      "id": "11245",
+      "month": "2025-10",
+      "detail": "monthly load factor 225.0%"
+    },
+    {
+      "rule": "R6",
+      "id": "12598",
+      "month": "2019-09",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R6",
+      "id": "13821",
+      "month": "2026-06",
+      "detail": "monthly load factor 108.3%"
+    },
+    {
+      "rule": "R6",
+      "id": "13940",
+      "month": "2026-06",
+      "detail": "monthly load factor 116.7%"
+    },
+    {
+      "rule": "R6",
+      "id": "14950",
+      "month": "2024-07",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R6",
+      "id": "15232",
+      "month": "2025-04",
+      "detail": "monthly load factor 114.3%"
+    },
+    {
+      "rule": "R6",
+      "id": "15649",
+      "month": "2025-08",
+      "detail": "monthly load factor 116.7%"
+    },
+    {
+      "rule": "R6",
+      "id": "16353",
+      "month": "2025-11",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R6",
+      "id": "16751",
+      "month": "2026-05",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R6",
+      "id": "17065",
+      "month": "2025-03",
+      "detail": "monthly load factor 112.5%"
+    },
+    {
+      "rule": "R1",
+      "id": "11193",
+      "detail": "state differs: routes KY, L_AIRPORT_ID OH"
+    },
+    {
+      "rule": "R1",
+      "id": "11278",
+      "detail": "state differs: routes VA, L_AIRPORT_ID DC"
+    },
+    {
+      "rule": "R1",
+      "id": "12264",
+      "detail": "state differs: routes VA, L_AIRPORT_ID DC"
+    },
+    {
+      "rule": "R1",
+      "id": "15934",
+      "detail": "route-data alias XWA dropped: it is the primary code of airport 16869"
+    }
+  ]
+}

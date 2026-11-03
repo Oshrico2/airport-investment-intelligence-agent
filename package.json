@@ -1,0 +1,29 @@
+{
+  "name": "airport-investment-agent",
+  "private": true,
+  "description": "Airport Investment Intelligence Agent: Gemini tool-calling agent over deterministic BTS analytics",
+  "engines": {
+    "node": "22.x"
+  },
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "predev": "node scripts/check-node.mjs",
+    "dev": "node scripts/dev.mjs",
+    "prebuild": "node scripts/check-node.mjs",
+    "build": "npm run build -w server && npm run build -w web",
+    "prestart": "node scripts/check-node.mjs",
+    "start": "npm run start -w server",
+    "pretest": "node scripts/check-node.mjs",
+    "test": "npm test -w server && npm test -w web",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "refresh": "npm run refresh -w server",
+    "pree2e": "node scripts/check-node.mjs",
+    "e2e": "npm run e2e -w web",
+    "codes": "npm run codes -w server --",
+    "deploy:preview": "bash scripts/deploy.sh preview",
+    "deploy:production": "bash scripts/deploy.sh production"
+  }
+}

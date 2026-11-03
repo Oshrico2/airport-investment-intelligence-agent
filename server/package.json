@@ -1,0 +1,47 @@
+{
+  "name": "@aiia/server",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "node ../scripts/server-dev.mjs",
+    "start": "node dist/main.js",
+    "refresh": "tsc -p tsconfig.build.json && node dist/refresh/refresh.js",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "bench": "tsc -p tsconfig.build.json && node dist/analytics/bench.js",
+    "verify:gemini": "tsc -p tsconfig.build.json && node dist/chat/verify-gemini.js",
+    "verify:claude": "tsc -p tsconfig.build.json && node dist/chat/verify-claude.js",
+    "codes": "tsc -p tsconfig.build.json && node dist/access/codes-cli.js"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/*.spec.ts"
+    ]
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.4.0",
+    "@google/genai": "^2.32.0",
+    "@nestjs/common": "^11.2.8",
+    "@nestjs/core": "^11.2.8",
+    "@nestjs/platform-express": "^11.2.8",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.2.8",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.20.5",
+    "@types/supertest": "^7.2.1",
+    "jest": "^30.5.2",
+    "supertest": "^7.3.1",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="t">
+  <title id="t">Airport Investment Intelligence Agent</title>
+  <!-- "Flap Ascent": a split-flap signal tile; growth bars whose tops share one climb-out line; runway centreline. -->
+  <defs>
+    <linearGradient id="flap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.5" stop-color="#ffcc3d"/>
+      <stop offset="0.5" stop-color="#f5bd22"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="30" height="30" rx="6.5" fill="url(#flap)"/>
+  <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="6.1" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width=".8"/>
+  <path fill="#0a0f18" d="M7 24V18L12 14.67V24ZM13.5 24V13.67L18.5 10.33V24ZM20 24V9.33L25 6V24Z"/>
+  <path d="M7 26.3H25" stroke="#0a0f18" stroke-width="1.1" stroke-dasharray="2.5 1.5"/>
+  <path d="M1.8 16H30.2" stroke="#c8951a" stroke-width=".9"/>
+</svg>
